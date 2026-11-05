@@ -1,0 +1,19 @@
+# Keep the real configuration in the member's private workspace.
+# Run in report mode before authorizing a fix or any writes.
+mode: report
+workspace: Example Workspace
+eligibility_label: AI Ready
+max_tasks: 1
+# Use a member-owned path accessible to subsequent runs.
+state_file: ~/.virtualspace-agent/daily-task-run-state.json
+projects:
+  - project: Example Product
+    source_sections:
+      - Ready for engineering
+    review_section: Ready for review
+    repository: example-org/example-product
+    base_branch: main
+    # Choose local_patch or draft_pr when running in fix mode.
+    handoff: local_patch
+    post_task_comment: false
+    move_task: false
